@@ -1,8 +1,7 @@
-# cricket-density-rna-sequencing
 
-# Hello
+# Hello!
 
-If you've found your way to this repo, hopefully you've enjoyed our paper! My name is Emily, and I was the lead author on this project.
+If you've found your way to this repo, hopefully you've enjoyed our paper! My name is Emily, and I was the lead author on this project. : ) Thank you for visiting.
 
 
 ![We hope you're excited!](images/meme.jpg)
@@ -77,7 +76,7 @@ The pipeline is organized as a standard RNA-seq analysis workflow:
     Joins gene annotations from eggNOG to the DE results so each gene has functional context.
 
 -   `3_enrich_multifactorial_density.R`\
-    Performs GO and KEGG enrichment for up-regulated and down-regulated genes.
+    Runs GO and KEGG enrichment for up-regulated and down-regulated genes.
 
 -   `4_annotate_go_terms_density.R`\
     Adds descriptive names to GO IDs in enrichment results.
@@ -98,10 +97,11 @@ The `results/` directory contains downstream files such as:
 -   reduced GO-term summaries
 -   convenience summary reports for interpretation
 
-These outputs are intended to support biological interpretation of which pathways and processes are altered by high-density rearing.
 
-## Notes
+## The end!
 
-This repo is built around a single factorial density contrast and is focused on transcriptome-level interpretation.. The scripts are set up for reproducible analysis of this cricket density experiment.
+![That was so fun!](images/meme-2.jpg)
 
-\
+Thank you for reading the paper, and forbeing interested enough to come to check out all the action in the repo. :  
+This was my very first bioinformatics project, and I had lots of fun coding it. If you like this, feel free to check out some of the other computation biology repositories included on this github.
+
