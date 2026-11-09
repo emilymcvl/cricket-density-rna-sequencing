@@ -465,9 +465,9 @@ Rscript annotate_go_terms_density.R
 
 For every GO ID in the `GO_UP/` and `GO_DOWN/` enrichment files, the script looks up:
 
-- **`GO_Name`** — the human-readable term name (e.g., "immune response").
-- **`GO_Category`** — Biological Process, Molecular Function, or Cellular Component.
-- **`GO_Definition`** — the full definition of the term.
+- **`GO_Name`** : the human-readable term name (e.g., "immune response").
+- **`GO_Category`** : Biological Process, Molecular Function, or Cellular Component.
+- **`GO_Definition`**: the full definition of the term.
 
 ### Output Files
 
@@ -531,15 +531,15 @@ Once `counts.csv` and the eggNOG annotations exist, the entire downstream analys
 conda activate stats
 cd ~/work/density/code
 
-Rscript 1_deseq2_multifactorial_density.R        # 1. DE testing (high vs low)
-Rscript 2_annotate_de_multifactorial_density.R   # 2. Join eggNOG annotations
-Rscript 3_enrich__density.R        # 3. Directional GO & KEGG enrichment
+Rscript 1_deseq2l_density.R        # 1. DE testing (high vs low)
+Rscript 2_annotate_de_density.R   # 2. Join eggNOG annotations
+Rscript 3_enrich_density.R        # 3. Directional GO & KEGG enrichment
 Rscript 4_annotate_go_terms_density.R            # 4. Add GO names/definitions
 Rscript 5_rrvgo_reduce_density.R                 # 5. Reduce GO redundancy
 Rscript 6_summaries-for-your-convenience.R     # 6. Summary text file
 ```
 
-Each step depends on the output of the previous one, so the order matters. All outputs are written under `deseq2_results_density/`.
+Each step depends on the output of the previous one, so the order matters.
 
 
 
@@ -580,106 +580,3 @@ Both search for homologous proteins, but with key differences:
 | **Annotation transfer** | From any hit | From orthologs only |
 | **Benchmarks** | — | 11–15% fewer false-positive GO terms vs. BLAST |
 
-**Summary:** eggNOG-mapper is more precise and requires less manual curation.
-
-### A3. Manual BLAST (If Needed)
-
-To extract and BLAST significant DE genes manually:
-
-```bash
-# Extract significant DEGs from the DESeq2 results
-awk -F',' '
-NR==1 {
-  for(i=1;i<=NF;i++) {
-    if($i=="FDR") fdr=i
-    if($i=="log2FoldChange") lfc=i
-    if($i=="name") name=i
-  }
-}
-NR>1 && $(fdr)<0.05 && ($(lfc)>1 || $(lfc)<-1) {
-  print $name
-}' deseq2_results_density/results_high_vs_low.csv > de_ids.txt
-
-# Extract sequences
-awk 'NR==FNR {ids[$1]=1; next} 
-     /^>/ {
-        header = substr($0, 2)
-        split(header, arr, " ")
-        id = arr[1]
-        if (id in ids) {
-           print ">" header
-           print_seq = 1
-        } else {
-           print_seq = 0
-        }
-     } 
-     !/^>/ && print_seq {print}' de_ids.txt refs/transcripts.fa > de_transcripts.fa
-
-# BLAST against NCBI nr database
-blastx -query de_transcripts.fa \
-  -db nr \
-  -remote \
-  -entrez_query "txid6656[ORGN]" \
-  -evalue 0.001 \
-  -max_target_seqs 10 \
-  -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore stitle" \
-  -out acheta_blastx_arthropoda.txt
-```
-
----
-
-### A4. Notes on Annotation Strategy
-
-**Annotation = "Give each transcript an identity."**
-
-For each transcript, we determine:
-
-- Does it match a known gene in another species?
-- What is that gene called?
-- What does it do? (functional description)
-- Which GO terms apply? (e.g., "immune response", "apoptosis")
-- Which KEGG pathway is it in? (e.g., "Toll signaling", "lipid metabolism")
-
-**Enrichment** then asks:
-
-Among the transcripts that change significantly (DE), are certain functions or pathways **over-represented** compared to the background?
-
-*Example:*
-
-- Background (all 1000 transcripts): 100 are tagged "immune response" (10%).
-- DE results (200 transcripts called DE): 80 are "immune response" (40%).
-- **Finding:** Immune response is 4× enriched among DE genes — statistically significant and biologically meaningful.
-
----
-
-### A5. Downstream Output Directory Tree
-
-All downstream results are written under `deseq2_results_density/`:
-
-```
-deseq2_results_density/
-├── results_high_vs_low.csv                        # DESeq2 output (apeglm-shrunk)
-├── annotated/
-│   ├── full/annotated_full_high_vs_low.csv        # all genes + eggNOG annotations
-│   ├── significant/annotated_sig_high_vs_low.csv  # FDR<0.05 & |log2FC|>1
-│   └── annotation_summary.csv
-├── comprehensive_go_analysis_density/
-│   ├── GO_UP/  GO_DOWN/                            # raw enriched GO terms
-│   ├── GO_UP_annotated/  GO_DOWN_annotated/        # + GO_Name / Category / Definition
-│   ├── GO_UP_reduced/  GO_DOWN_reduced/            # rrvgo non-redundant terms
-│   ├── KEGG_UP/  KEGG_DOWN/                        # enriched KEGG KOs
-│   ├── 01_individual_comparisons/
-│   │   └── high_vs_low_summary.txt                 # synthesis summary
-│   ├── directional_enrichment_summary.csv
-│   └── go_annotation_summary.csv
-├── gene_go_drivers_density/
-│   ├── significant_genes_with_GO_high_vs_low.csv
-│   ├── all_gene_GO_links_long.csv                  # long format for ggplot2
-│   ├── MASTER_top_driver_genes.csv
-│   └── per_contrast_summary.csv
-└── rrvgo_reduction_summary.csv
-```
-
----
-
-*Last updated: May 26, 2026*
