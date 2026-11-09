@@ -37,8 +37,8 @@ This repo includes:
 │   ├── design.csv
 │   ├── ids.txt
 │   ├── 1_deseq2_multifactorial_density.R
-│   ├── 2_annotate_de_multifactorial_density.R
-│   ├── 3_enrich_multifactorial_density.R
+│   ├── 2_annotate_de_density.R
+│   ├── 3_enrich_density.R
 │   ├── 4_annotate_go_terms_density.R
 │   ├── 5_rrvgo_reduce_density.R
 │   └── 6_summaries-for-your-convenience.R
