@@ -427,7 +427,7 @@ Test whether biological functions (GO terms) or pathways (KEGG KOs) are over-rep
 conda activate stats
 cd ~/work/density/code
 
-Rscript enrich_multifactorial_density.R
+Rscript enrich_density.R
 ```
 
 ### What the script does
@@ -533,10 +533,10 @@ cd ~/work/density/code
 
 Rscript 1_deseq2_multifactorial_density.R        # 1. DE testing (high vs low)
 Rscript 2_annotate_de_multifactorial_density.R   # 2. Join eggNOG annotations
-Rscript 3_enrich_multifactorial_density.R        # 3. Directional GO & KEGG enrichment
+Rscript 3_enrich__density.R        # 3. Directional GO & KEGG enrichment
 Rscript 4_annotate_go_terms_density.R            # 4. Add GO names/definitions
 Rscript 5_rrvgo_reduce_density.R                 # 5. Reduce GO redundancy
-Rscript 6_summarie-for-your-convenience.R     # 6. Summary text file
+Rscript 6_summaries-for-your-convenience.R     # 6. Summary text file
 ```
 
 Each step depends on the output of the previous one, so the order matters. All outputs are written under `deseq2_results_density/`.
