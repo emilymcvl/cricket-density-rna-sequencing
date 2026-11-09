@@ -35,7 +35,7 @@ This repo includes:
 ├── code/
 │   ├── design.csv
 │   ├── ids.txt
-│   ├── 1_deseq2_multifactorial_density.R
+│   ├── 1_deseq2_density.R
 │   ├── 2_annotate_de_density.R
 │   ├── 3_enrich_density.R
 │   ├── 4_annotate_go_terms_density.R
@@ -69,13 +69,13 @@ The pipeline is organized as a standard RNA-seq analysis workflow:
 
 ## Key scripts
 
--   `1_deseq2_multifactorial_density.R`\
+-   `1_deseq2_density.R`\
     Runs the DESeq2 differential expression analysis for the high-vs-low density comparison.
 
--   `2_annotate_de_multifactorial_density.R`\
+-   `2_annotate_de_density.R`\
     Joins gene annotations from eggNOG to the DE results so each gene has functional context.
 
--   `3_enrich_multifactorial_density.R`\
+-   `3_enrich_density.R`\
     Runs GO and KEGG enrichment for up-regulated and down-regulated genes.
 
 -   `4_annotate_go_terms_density.R`\
@@ -105,7 +105,3 @@ The `results/` directory contains downstream files such as:
 Thank you for reading the paper, and forbeing interested enough to come to check out all the action in the repo. :  
 This was my very first bioinformatics project, and I had lots of fun coding it. If you like this, feel free to check out some of the other computation biology repositories included on this github.
 
-<<<<<<< HEAD
-=======
-\
->>>>>>> c268b61f79cb30a6906bd14e80406ed8ad4ad1f7

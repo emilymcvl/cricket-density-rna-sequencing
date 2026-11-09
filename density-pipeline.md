@@ -306,7 +306,7 @@ Run DESeq2 to identify differentially expressed genes between low- and high-dens
 conda activate stats
 cd ~/work/density/code
 
-Rscript deseq2_multifactorial_density.R
+Rscript deseq2_density.R
 ```
 
 ### Design and model
@@ -399,7 +399,7 @@ Join eggNOG annotations with DESeq2 results:
 conda activate stats
 cd ~/work/density/code
 
-Rscript annotate_de_multifactorial_density.R
+Rscript annotate_de_density.R
 ```
 
 The script reads the eggNOG annotation table (`../eggnog/acheta_transdecoder_eggnog.emapper.annotations`), strips the TransDecoder `.p#` suffix from query IDs so they match transcript IDs, and left-joins annotations onto every DESeq2 result file it finds in `deseq2_results_density/` (auto-discovered by the `results_*.csv` pattern). Columns are reordered as DESeq2 stats → key annotation fields → everything else.
