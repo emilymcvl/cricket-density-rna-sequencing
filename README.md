@@ -7,7 +7,7 @@ If you've found your way to this repo, hopefully you've enjoyed our paper! My na
 
 ![We hope you're excited!](images/meme.jpg)
 
-The following repo includes all of the documents you need to follow along with the analysis for our study on how population density affects gene expression in crickets. The file `density-pipeline.md shows` the full pipeline we used. The original file paths are preserved to reflect how the analysis was run in practice, but to save space and avoid unnecessary clutter, I’ve only uploaded the key files and results here.
+This repo contains everything you need to follow along the analysis for our study, which explores how population density affects gene expression in crickets. The file `density-pipeline.md shows` the full pipeline we used. The original file paths are preserved to reflect how the analysis was run in practice, but to save space and avoid unnecessary clutter, I’ve only uploaded the key files and results here.
 
 The code folder contains all of the scripts used for the analysis, in the order they were run, and the results folder contains the outputs of those scripts.
 
