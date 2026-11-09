@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════
+KEGG ENRICHMENT: high_vs_low_ns
+═══════════════════════════════════════════════════════════════
+
+CONTRAST DIRECTION:
+  HIGH vs LOW density (no shrinkage)
+  UP = enriched among genes higher in HIGH density
+  DOWN = enriched among genes higher in LOW density
+
+OVERVIEW:
+  KEGG KO terms (UP):   7
+  KEGG KO terms (DOWN): 11
+
+  Enrichment cutoffs: p < 0.05, q < 0.2 (clusterProfiler enricher).
+  Note: enrichment is of individual KEGG KOs, not full pathways.
+
+═══════════════════════════════════════════════════════════════
+KEGG TERMS (UP — enriched in genes higher in HIGH density)
+═══════════════════════════════════════════════════════════════
+
+  KO_ID          KO Description                             P.adjust    GeneRatio      BgRatio   Enrich  Count
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ko:K14972      ko:K14972                                  1.34e-02         1/13      4/10150   195.19      1
+  ko:K15407      ko:K15407                                  1.34e-02         1/13      4/10150   195.19      1
+  ko:K13506      ko:K13506                                  1.34e-02         1/13      5/10150   156.15      1
+  ko:K01283      ko:K01283                                  1.34e-02         1/13      6/10150   130.13      1
+  ko:K00665      ko:K00665                                  1.65e-02         1/13     11/10150    70.98      1
+  ko:K12045      ko:K12045                                  1.65e-02         1/13     13/10150    60.06      1
+  ko:K12046      ko:K12046                                  1.65e-02         1/13     13/10150    60.06      1
+
+═══════════════════════════════════════════════════════════════
+KEGG TERMS (DOWN — enriched in genes higher in LOW density)
+═══════════════════════════════════════════════════════════════
+
+  KO_ID          KO Description                             P.adjust    GeneRatio      BgRatio   Enrich  Count
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ko:K01873      ko:K01873                                  3.08e-04         3/26     21/10150    55.77      3
+  ko:K05853      ko:K05853                                  1.40e-03         2/26      8/10150    97.60      2
+  ko:K02906      ko:K02906                                  3.07e-02         1/26      3/10150   130.13      1
+  ko:K05863      ko:K05863                                  3.07e-02         1/26      3/10150   130.13      1
+  ko:K18266      ko:K18266                                  3.27e-02         1/26      4/10150    97.60      1
+  ko:K20526      ko:K20526                                  3.40e-02         1/26      5/10150    78.08      1
+  ko:K14210      ko:K14210                                  4.41e-02         1/26     10/10150    39.04      1
+  ko:K01187      ko:K01187                                  4.41e-02         1/26     11/10150    35.49      1
+  ko:K01194      ko:K01194                                  4.41e-02         1/26     12/10150    32.53      1
+  ko:K09290      ko:K09290                                  4.41e-02         1/26     12/10150    32.53      1
+  ko:K10373      ko:K10373                                  4.41e-02         1/26     12/10150    32.53      1

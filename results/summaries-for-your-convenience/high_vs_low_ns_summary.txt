@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════
+COMPARISON: high_vs_low_ns
+═══════════════════════════════════════════════════════════════
+
+CONTRAST DIRECTION:
+  HIGH vs LOW density (no shrinkage)
+  UP = Higher in HIGH density | DOWN = Higher in LOW density
+
+OVERVIEW:
+  Total DE genes:  111
+  UP-regulated:    35 genes
+  DOWN-regulated:  76 genes
+  GO terms (UP):   0 raw -> 0 non-redundant (rrvgo)
+  GO terms (DOWN): 6 raw -> 0 non-redundant (rrvgo)
+
+═══════════════════════════════════════════════════════════════
+RAW GO TERMS
+═══════════════════════════════════════════════════════════════
+
+UP-REGULATED GO TERMS:
+
+  (No significant GO terms)
+
+DOWN-REGULATED GO TERMS:
+
+  GO_ID        GO Term                                    P.adjust    GeneRatio      BgRatio Enrichment
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+  GO:0016054   organic acid catabolic process             7.44e-03         5/26    207/10150     9.43
+  GO:0046395   carboxylic acid catabolic process          7.44e-03         5/26    207/10150     9.43
+  GO:0008144   NA                                         1.42e-02         6/26    443/10150     5.29
+  GO:0044282   small molecule catabolic process           1.42e-02         5/26    290/10150     6.73
+  GO:0034220   monoatomic ion transmembrane transport     3.13e-02         5/26    415/10150     4.70
+  GO:0031226   NA                                         3.85e-02         5/26    443/10150     4.41
+
+═══════════════════════════════════════════════════════════════
+REDUCED GO TERMS (rrvgo, similarity threshold 0.8)
+═══════════════════════════════════════════════════════════════
+
+Each row below is a cluster representative — the most significant
+term of a group of semantically similar terms. The ClusterSz
+column shows how many raw redundant terms collapsed into each
+representative (ClusterSz = 1 means the term was already distinct).
+
+REDUCED UP-REGULATED GO TERMS:
+
+  (No significant GO terms)
+
+REDUCED DOWN-REGULATED GO TERMS:
+
+  (No significant GO terms)
