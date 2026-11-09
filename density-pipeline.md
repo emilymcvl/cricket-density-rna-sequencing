@@ -7,7 +7,6 @@
 
 This log documents all terminal commands and R scripts used for data processing, alignment, differential expression analysis, functional annotation, GO enrichment, redundancy reduction, and gene-to-function synthesis. All commands are provided for reproducibility.
 
-The differential expression and downstream functional scripts were adapted from the parabolic-flight cricket pipeline. Because the density experiment is a single two-level comparison (**high vs low density**, n = 4 per group) with no age, sex, or timepoint structure, the multi-contrast machinery of the flight pipeline collapses to a single contrast. The script logic (low-count filtering, apeglm LFC shrinkage, eggNOG annotation, directional GO/KEGG enrichment, and rrvgo reduction) is otherwise preserved.
 
 ---
 
