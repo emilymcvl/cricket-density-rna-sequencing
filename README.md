@@ -89,7 +89,7 @@ The pipeline is organized as a standard RNA-seq analysis workflow:
 
 ## Outputs
 
-The `results/` directory contains downstream files such as:
+The `results/` directory contains files such as:
 
 -   differentially expressed genes
 -   annotated DE results
