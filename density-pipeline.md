@@ -5,7 +5,7 @@
 **Project:** Effects of Crowding Density on Gene Expression in *Acheta domesticus*  
 **Description:** Differential gene expression analysis of Illumina RNA-seq data from low- and high-density reared crickets.
 
-This log documents all terminal commands and R scripts used for data processing, alignment, differential expression analysis, functional annotation, GO enrichment, redundancy reduction, and gene-to-function synthesis. All commands are provided for reproducibility.
+This log documents all terminal commands and R scripts used for data processing, alignment, differential expression analysis, and functional annotation. All commands are provided for reproducibility.
 
 
 ---
