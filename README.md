@@ -102,6 +102,6 @@ The `results/` directory contains downstream files such as:
 
 ![That was so fun!](images/meme-2.jpg)
 
-Thank you for reading the paper, and forbeing interested enough to come to check out all the action in the repo. :  
+Thank you for reading the paper (and for being interested enough to come to check out all the action in the repo!)  
 This was my very first bioinformatics project, and I had lots of fun coding it. If you like this, feel free to check out some of the other computation biology repositories included on this github.
 
