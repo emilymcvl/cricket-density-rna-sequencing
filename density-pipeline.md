@@ -5,9 +5,8 @@
 **Project:** Effects of Crowding Density on Gene Expression in *Acheta domesticus*  
 **Description:** Differential gene expression analysis of Illumina RNA-seq data from low- and high-density reared crickets.
 
-This log documents all terminal commands and R scripts used for data processing, alignment, differential expression analysis, functional annotation, GO enrichment, redundancy reduction, and gene-to-function synthesis. All commands are provided for reproducibility.
+This log documents all terminal commands and R scripts used for data processing, alignment, differential expression analysis, and functional annotation. All commands are provided for reproducibility.
 
-The differential expression and downstream functional scripts were adapted from the parabolic-flight cricket pipeline. Because the density experiment is a single two-level comparison (**high vs low density**, n = 4 per group) with no age, sex, or timepoint structure, the multi-contrast machinery of the flight pipeline collapses to a single contrast. The script logic (low-count filtering, apeglm LFC shrinkage, eggNOG annotation, directional GO/KEGG enrichment, and rrvgo reduction) is otherwise preserved.
 
 ---
 
@@ -428,7 +427,7 @@ Test whether biological functions (GO terms) or pathways (KEGG KOs) are over-rep
 conda activate stats
 cd ~/work/density/code
 
-Rscript enrich_multifactorial_density.R
+Rscript enrich_density.R
 ```
 
 ### What the script does
@@ -534,10 +533,10 @@ cd ~/work/density/code
 
 Rscript 1_deseq2_multifactorial_density.R        # 1. DE testing (high vs low)
 Rscript 2_annotate_de_multifactorial_density.R   # 2. Join eggNOG annotations
-Rscript 3_enrich_multifactorial_density.R        # 3. Directional GO & KEGG enrichment
+Rscript 3_enrich__density.R        # 3. Directional GO & KEGG enrichment
 Rscript 4_annotate_go_terms_density.R            # 4. Add GO names/definitions
 Rscript 5_rrvgo_reduce_density.R                 # 5. Reduce GO redundancy
-Rscript 6_summarie-for-your-convenience.R     # 6. Summary text file
+Rscript 6_summaries-for-your-convenience.R     # 6. Summary text file
 ```
 
 Each step depends on the output of the previous one, so the order matters. All outputs are written under `deseq2_results_density/`.
