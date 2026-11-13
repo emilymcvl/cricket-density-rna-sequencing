@@ -513,9 +513,6 @@ cd ~/work/density/code
 Rscript summaries-for-your-convenience.R
 ```
 
-### Scope note
-
-The flight pipeline performed *cross-contrast* synthesis — a master GO catalog, per-term "biographies", gene trajectories, and a presence/absence heatmap — all of which exist to find patterns **across many contrasts of equal statistical power**. The density experiment has a **single contrast**, so those comparisons would trivially report "present in 1 of 1" and are omitted. What remains is the per-contrast summary writer, which is genuinely useful for one contrast.
 
 ### Output File
 
