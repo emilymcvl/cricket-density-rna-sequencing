@@ -324,7 +324,7 @@ and the single extracted coefficient is `condition_high_vs_low`. A positive `log
 1. Reads `design.csv` and the count matrix `../counts.csv`, rounding counts to integers.
 2. Applies a low-count pre-filter (`filter_low_counts`): a transcript is kept only if it has ≥ 10 counts in at least as many samples as the smallest group (here, 4). This removes noise-dominated transcripts before testing.
 3. Fits the DESeq2 model and extracts the `condition_high_vs_low` coefficient.
-4. Applies apeglm LFC shrinkage to the coefficient. Shrinkage improves the log2FC estimate while the hypothesis test and FDR come from the standard Wald test for the same coefficient.
+4. Applies apeglm LFC shrinkage to the coefficient. 
 5. Formats and writes the results.
 
 ### Output
